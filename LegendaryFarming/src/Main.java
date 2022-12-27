@@ -28,19 +28,31 @@ public class Main {
                 }
             }
             inputs = scanner.nextLine().split(" ");
-        }
-
-        // Check for legendary item
-        for (String item: map.keySet()) {
-            if (map.get(item) == 250) {
-                legendaryItem = item;
-                map.put(item, map.get(item) - 250);
+            if (inputs.length == 1) {
                 break;
             }
         }
 
-        System.out.printf("%s obtained!", legendaryItem);
-        map.entrySet().stream().sorted(Map.Entry.comparingByKey()).forEach(k -> System.out.println(k.getKey() + ": " + k.getValue()));
+        // Check for legendary item
+        for (Map.Entry<String, Integer> entity : map.entrySet()) {
+            String key = entity.getKey();
+            int value = entity.getValue();
+            if (value >= 250) {
+                if (key == "shards") {
+                    legendaryItem = "Shadowmourne";
+                } else if (key == "fragments") {
+                    legendaryItem = "Valanyr";
+                } else if (key == "motes") {
+                    legendaryItem = "Dragonwrath";
+                }
+                map.put(key, value - 250);
+                break;
+            }
+        }
+
+        System.out.println(String.format("%s obtained!", legendaryItem));
+        map.entrySet().stream().sorted(Map.Entry.comparingByValue()).forEach(k -> System.out.println(k.getKey() + ": " + k.getValue()));
+        junk.entrySet().stream().sorted(Map.Entry.comparingByValue()).forEach(j -> System.out.println(j.getKey() + ": " + j.getValue()));
 
         scanner.close();
     }
