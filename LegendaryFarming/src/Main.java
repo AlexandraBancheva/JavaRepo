@@ -14,7 +14,7 @@ public class Main {
         String legendaryItem = "";
 
         while (!inputs.equals("end")){
-            for (int i = 0; i < inputs.length; i++) {
+            for (int i = 0; i < inputs.length; i+=2) {
                 int quantity = Integer.parseInt(inputs[i]);
                 String material = inputs[i + 1].toLowerCase();
                 if (material.equals("shards") || material.equals("fragments") || material.equals("motes")) {
