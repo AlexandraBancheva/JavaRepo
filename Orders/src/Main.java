@@ -1,7 +1,4 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -34,10 +31,11 @@ public class Main {
             }
         }
 
-        for (Map.Entry<String, Double> entity: productsPrice.entrySet()) {
+        TreeMap<String, Double> sorted= new TreeMap<>(productsPrice);
+        for (Map.Entry<String, Double> entity: sorted.entrySet()) {
             int currentProductQuantity = productsQuantities.get(entity.getKey());
             double totalPrice = entity.getValue() * currentProductQuantity;
-            System.out.println(String.format(entity.getKey() + "-> " + "%.2f", totalPrice));
+            System.out.println(String.format(entity.getKey() + " -> " + "%.2f", totalPrice));
         }
 
         scanner.close();
