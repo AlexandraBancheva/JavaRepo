@@ -11,14 +11,18 @@ public class Main {
 
 
         for (int i = 0; i < numberOfCommands; i++) {
-            String[] inputs = scanner.nextLine().Split(" ");
+            String[] inputs = scanner.nextLine().split(" ");
             if (inputs[0] == "register") {
                 username = inputs[1];
                 String licensePlateNumber = inputs[2];
 
                 registerLicenseNumbers.put(username, licensePlateNumber);
+
+                System.out.println(String.format("%s registered %s successfully", username, licensePlateNumber));
             } else if (inputs[0] == "unregister") {
                 username = inputs[1];
+
+                System.out.println(String.format("%s unregistered successfully", username));
             }
         }
 
