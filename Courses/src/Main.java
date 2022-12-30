@@ -19,14 +19,13 @@ public class Main {
             inputs = scanner.nextLine();
         }
 
-//        TreeMap<String, ArrayList<String>> sortedDict = new TreeMap<String, ArrayList<String>();
         for (Map.Entry<String, ArrayList<String>> entity: coursesWithStudents.entrySet()) {
             String key = entity.getKey();
             ArrayList<String> values = entity.getValue();
             int countOfStudents = values.size();
 
             System.out.println(String.format("%s : %d", key, countOfStudents));
-
+            Collections.sort(values);
             for (String student: values) {
                 System.out.println(String.format("-- %s", student));
             }
