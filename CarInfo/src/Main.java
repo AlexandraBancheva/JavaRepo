@@ -10,6 +10,6 @@ public class Main {
         car.setModel("Yaris");
         car.setHorsePower(88);
 
-        System.out.println(car.CarInfo());
+        System.out.println(car.carInfo());
     }
 }

@@ -27,7 +27,7 @@ public class Car {
         this.horsePower = horsePower;
     }
 
-    public String CarInfo(){
+    public String carInfo(){
         return String.format("The car is: %s %s - %d HP", this.brand, this.model, this.horsePower);
     }
 }
