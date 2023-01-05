@@ -28,6 +28,6 @@ public class Car {
     }
 
     public String carInfo(){
-        return String.format("The car is: %s %s - %d HP", this.brand, this.model, this.horsePower);
+        return String.format("The car is: %s %s - %d HP.", this.brand, this.model, this.horsePower);
     }
 }

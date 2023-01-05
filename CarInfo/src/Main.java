@@ -4,12 +4,20 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        Car car = new Car();
+        int numberOfCars = Integer.parseInt(scanner.nextLine());
 
-        car.setBrand("Toyota");
-        car.setModel("Yaris");
-        car.setHorsePower(88);
+        for (int i = 0; i < numberOfCars; i++) {
+            String inputs = scanner.nextLine();
+            String[] lines = inputs.split(" ");
 
-        System.out.println(car.carInfo());
+            Car car = new Car();
+            car.setBrand(lines[0]);
+            car.setModel(lines[1]);
+            car.setHorsePower(Integer.parseInt(lines[2]));
+
+            System.out.println(car.carInfo());
+        }
+
+        scanner.close();
     }
 }
