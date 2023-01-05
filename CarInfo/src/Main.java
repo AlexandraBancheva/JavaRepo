@@ -10,6 +10,6 @@ public class Main {
         car.setModel("Yaris");
         car.setHorsePower(88);
 
-        System.out.println(String.format("The car is: %s %s - %d HP", car.getBrand(), car.getModel(), car.getHorsePower()));
+        System.out.println(car.CarInfo());
     }
 }
