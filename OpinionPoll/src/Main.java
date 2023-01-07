@@ -12,13 +12,18 @@ public class Main {
             persons.add(new Person(inputLine[0], Integer.parseInt(inputLine[1])));
         }
 
-        List<Person> soretedList = persons.stream().filter(a -> a.getAge() >= 30).toList();
+        List<Person> sortedList = new ArrayList<>(persons.stream().filter(a -> a.getAge() >= 30).toList());
 
-        for (Person person: soretedList) {
+        Collections.sort(sortedList, new Comparator<Person>() {
+                    @Override
+                    public int compare(Person o1, Person o2) {
+                        return o1.getName().compareTo(o2.getName());
+                    }
+                });
+
+        for (Person person: sortedList) {
             System.out.println(person.getName() + " - " + person.getAge());
         }
-
-
         scanner.close();
     }
 }
