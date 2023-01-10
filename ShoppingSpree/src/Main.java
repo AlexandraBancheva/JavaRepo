@@ -1,40 +1,44 @@
-import java.util.Arrays;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
-    private static final Map<String, Person> people = new LinkedHashMap<>();
-    private static final Map<String, Product> products = new LinkedHashMap<>();
+    private static Map<String, Person> people = new LinkedHashMap<>();
+    private static Map<String, Product> products = new LinkedHashMap<>();
+
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
+
         try {
-            setObject(scan, "Person");
-            setObject(scan, "Product");
+            setPersonOrProduct(scanner, "Person");
+            setPersonOrProduct(scanner, "Product");
         } catch (IllegalArgumentException exception) {
             System.out.println(exception.getMessage());
             return;
         }
-        String command;
 
-        while (!"END".equals(command = scan.nextLine())) {
-            try {
-                String[] tokens = command.split(" ");
-                people.get(tokens[0]).buyProduct(products.get(tokens[1]));
-            } catch (IllegalArgumentException exception) {
+        String command = scanner.nextLine();
+        while(!command.contains("END")){
+            try{
+                String[] input = command.split(" ");
+                people.get(input[0]).buyProduct(products.get(input[1]));
+
+            } catch (IllegalArgumentException exception){
                 System.out.println(exception.getMessage());
             }
+            command = scanner.nextLine();
         }
 
         people.values().forEach(System.out::println);
+        scanner.close();
     }
 
-    private static void setObject(Scanner scanner, String clazz) {
-        String[] inputData = scanner.nextLine().split(";");
-        Arrays.stream(inputData).map(s -> s.split("=")).forEach(data -> {
-            var object = clazz.equals("Person")
-                    ? people.put(data[0].trim(), new Person(data[0].trim(), Double.parseDouble(data[1].trim())))
-                    : products.put(data[0].trim(), new Product(data[0].trim(), Double.parseDouble(data[1].trim())));
+    private static void setPersonOrProduct(Scanner scanner, String typeOfClass) {
+        String[] inputLine = scanner.nextLine().split(";");
+        Arrays.stream(inputLine).map(i -> i.split("=")).forEach(data -> {
+            if(typeOfClass.equals("Person")){
+                people.put(data[0].trim(), new Person(data[0].trim(), Double.parseDouble(data[1].trim())));
+            } else if(typeOfClass.equals("Product")){
+                products.put(data[0].trim(), new Product(data[0].trim(), Double.parseDouble(data[1].trim())));
+            }
         });
     }
 }

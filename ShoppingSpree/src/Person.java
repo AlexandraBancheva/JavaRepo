@@ -29,7 +29,7 @@ public class Person {
     }
 
     public void buyProduct(Product product){
-        if (this.money > product.getCost()){
+        if (this.money < product.getCost()){
             throw new IllegalArgumentException(String.format("%s can't afford %s", this.name, product.getName()));
         }
         this.money -= product.getCost();
@@ -37,19 +37,13 @@ public class Person {
         System.out.printf("%s bought %s%n", this.name, product.getName());
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public List<Product> getProducts() {
-        return Collections.unmodifiableList(this.products);
-    }
-
     public String toString() {
         StringBuilder output = new StringBuilder(String.format("%s - ", this.name));
-        output.append(this.products.isEmpty() ? "Nothing bought"
-                : output.append(products.stream().map(Product::getName).collect(Collectors.joining(", "))));
+        if (this.products.isEmpty()){
+            output.append("Nothing bought");
+        } else {
+            output.append(this.products.stream().map(Product::getName).collect(Collectors.joining(", ")));
+        }
         return output.toString();
-
     }
 }
