@@ -1,8 +1,8 @@
 public class CarImpl implements Car{
-    private String model;
-    private String color;
-    private Integer horsePower;
-    private String countryProduced;
+    private final String model;
+    private final String color;
+    private final Integer horsePower;
+    private final String countryProduced;
 
     public CarImpl(String model, String color, Integer horsePower, String countryProduced) {
         this.model = model;
@@ -23,7 +23,7 @@ public class CarImpl implements Car{
 
     @Override
     public Integer getHorsePower() {
-        return this.getHorsePower();
+        return this.horsePower;
     }
 
     @Override
@@ -33,6 +33,6 @@ public class CarImpl implements Car{
 
     @Override
     public String toString() {
-        return String.format("This is %s produced in %s and have %d tires", getModel(), countryProduced(), TIRES);
+        return String.format("This is %s produced in %s and have %d tires", this.getModel(), this.countryProduced(), TIRES);
     }
 }
