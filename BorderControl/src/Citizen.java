@@ -3,9 +3,10 @@ public class Citizen implements Identifiable{
     private Integer age;
     private String name;
 
-    public Citizen(Integer age, String name) {
-        this.age = age;
+    public Citizen(String name, Integer age, String id) {
         this.name = name;
+        this.age = age;
+        this.id = id;
     }
 
     @Override
