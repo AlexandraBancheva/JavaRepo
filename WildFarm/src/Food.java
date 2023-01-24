@@ -1,3 +1,11 @@
 public abstract class Food {
-    Integer quantity;
+    protected Integer quantity;
+
+    public Food(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
 }
