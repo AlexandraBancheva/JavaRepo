@@ -6,6 +6,6 @@ public abstract class Animal {
 
     void makeSound() {
     }
-    void eat(Food) {
+    void eat(Food food) {
     }
 }
