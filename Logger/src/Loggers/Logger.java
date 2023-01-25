@@ -1,5 +1,7 @@
 package Loggers;
 
+import java.io.IOException;
+
 public interface Logger {
     void logInfo(String date,String message) throws IOException;
     void logWarning(String date,String message) throws IOException;

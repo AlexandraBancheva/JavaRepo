@@ -1,5 +1,7 @@
 package Appenders;
 
+import Enumerations.ReportLevel;
+
 import java.io.IOException;
 
 public interface Appender {

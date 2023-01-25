@@ -1,5 +1,6 @@
 package Appenders;
 
+import Enumerations.ReportLevel;
 import Layouts.Layout;
 
 import java.io.IOException;
@@ -30,16 +31,17 @@ public class AppenderImplementation implements Appender{
 
     @Override
     public void append(String date, ReportLevel reportLevel, String message) throws IOException {
-
     }
 
     @Override
     public void setReportLevel(ReportLevel reportLevel) {
+
         this.reportLevel = reportLevel;
     }
 
     @Override
     public ReportLevel getReportLevel() {
+
         return this.reportLevel;
     }
 

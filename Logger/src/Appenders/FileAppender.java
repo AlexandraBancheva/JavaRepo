@@ -1,5 +1,7 @@
 package Appenders;
 
+import CoustomFiles.LogFile;
+import Enumerations.ReportLevel;
 import Layouts.Layout;
 
 import java.io.File;
@@ -9,6 +11,7 @@ public class FileAppender extends AppenderImplementation{
     private File file;
 
     protected FileAppender(Layout layout) {
+
         super(layout);
     }
 
@@ -37,6 +40,7 @@ public class FileAppender extends AppenderImplementation{
 
     @Override
     public String toString() {
+
         return super.toString() + ", File size: "+ this.file.getSize();
     }
 }

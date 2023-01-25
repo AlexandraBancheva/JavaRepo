@@ -1,6 +1,7 @@
 package Loggers;
 
 import Appenders.Appender;
+import Enumerations.ReportLevel;
 
 import java.io.IOException;
 
@@ -13,7 +14,7 @@ public class MessageLogger implements Logger{
 
     @Override
     public void logInfo(String date, String message) throws IOException {
-        this.logMessage( date,ReportLevel.INFO, message);
+        this.logMessage( date, ReportLevel.INFO, message);
     }
 
     @Override

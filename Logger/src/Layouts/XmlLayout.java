@@ -1,5 +1,7 @@
 package Layouts;
 
+import Enumerations.ReportLevel;
+
 public class XmlLayout implements Layout{
     @Override
     public String format(String date, ReportLevel reporterLevel, String message) {
@@ -7,6 +9,6 @@ public class XmlLayout implements Layout{
                 "   <date>%s</date>\n" +
                 "   <level>%s</level>\r\n" +
                 "   <message>%s</message>\n" +
-                "</log>\r\n",date,reportLevel.toString(),message);
+                "</log>\r\n",date,reporterLevel.toString(),message);
     }
 }

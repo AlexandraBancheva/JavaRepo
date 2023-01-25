@@ -1,13 +1,16 @@
 package Appenders;
 
+import Enumerations.ReportLevel;
 import Layouts.Layout;
 
 public class ConsoleAppender extends AppenderImplementation{
     protected ConsoleAppender(Layout layout) {
+
         super(layout);
     }
 
     protected ConsoleAppender(Layout layout, ReportLevel reportLevel) {
+
         super(layout, reportLevel);
     }
 
